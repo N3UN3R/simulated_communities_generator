@@ -16,6 +16,10 @@ dataGenerator_withLocals.py
   which are not in local distance
 
 
+calculateCostDict.py
+- this script creates a cost-dictionary for all generated households based
+- it also creates a file with all used reductions to generate the cost dictionary
+
 
 
 
