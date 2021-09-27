@@ -43,5 +43,4 @@ generate_scaled_commmunities.py
 
 No_locals_community.py
 - Program that generates communties with households without local distance
-- 
 
