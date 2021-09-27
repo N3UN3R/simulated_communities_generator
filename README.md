@@ -1,25 +1,47 @@
 # simulated_communities_generator
 
-based on https://launix.de/launix/launix-gibt-plz-datenbank-frei/ distances of all zipcodes in Germany have
-been calcultated and saved to cleaned_local_distances.csv
+
+# needed data
+
+zipcodes_to_specificData.json
+- contains zipcodes matched to necessary data like the coordinates, net costs and konzession costs
+
+PLZ_orte.csv
+- contains zipcodes in Germany matched to coordinates.
+  available on https://launix.de/launix/launix-gibt-plz-datenbank-frei/
+
+cleaned_kein_lokaler_Zusammenhang.csv
+- contains zipcodes that have a distance over 4.5 km
+
+cleaned_lokaler_Zusammenhang.csv
+- contains zipcodes that have a distance under 4.5 km
+
+# programs
+
+calculatedCostDict.py
+-	Program that calculates cost dictionarys for simulated communities as well as the used reductions
+  of each possible trading pair
 
 
-dataGenerator_withLocals.py
- - this script rebuilds producer and consumer data
-- based on the distances in cleaned_local_distances.csv this script generates
-  simulated households with unique meter-Ids and random supply/demand values
-
-  function local_distance_households(localDistance)
-   makes it possible to decide how many of those generated households do have local distance
- 
-  function create_random_consumers and create_random_producers could be used to generate random households
-  which are not in local distance
+costDictIntegers.py
+-	Program that transforms the float values of cost dictionaries into integer values which are needed for
+  the network simplex algorithm
 
 
-calculateCostDict.py
-- this script creates a cost-dictionary for all generated households based
-- it also creates a file with all used reductions to generate the cost dictionary
+generate_local_communities.py
+-	program that generates a community containing just households with local distance 
 
 
+generate_micro_clusters.py
+-	Program that generates a community which contains household clusters with local distance
+  for specific zipcode areas in Germany
 
+
+generate_scaled_commmunities.py
+-	Program that generates random communities of optional size
+
+
+No_locals_community.py
+- Program that generates communties with households without local distance
+- 
 
